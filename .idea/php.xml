@@ -76,6 +76,17 @@
       <path value="$PROJECT_DIR$/code_shopping/vendor/swiftmailer/swiftmailer" />
       <path value="$PROJECT_DIR$/code_shopping/vendor/sebastian/object-enumerator" />
       <path value="$PROJECT_DIR$/code_shopping/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/code_shopping/vendor/cocur/slugify" />
+      <path value="$PROJECT_DIR$/code_shopping/vendor/cviebrock/eloquent-sluggable" />
+      <path value="$PROJECT_DIR$/code_shopping/vendor/symfony/filesystem" />
+      <path value="$PROJECT_DIR$/code_shopping/vendor/seld/phar-utils" />
+      <path value="$PROJECT_DIR$/code_shopping/vendor/seld/jsonlint" />
+      <path value="$PROJECT_DIR$/code_shopping/vendor/justinrainbow/json-schema" />
+      <path value="$PROJECT_DIR$/code_shopping/vendor/barryvdh/reflection-docblock" />
+      <path value="$PROJECT_DIR$/code_shopping/vendor/barryvdh/laravel-ide-helper" />
+      <path value="$PROJECT_DIR$/code_shopping/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/code_shopping/vendor/doctrine/event-manager" />
+      <path value="$PROJECT_DIR$/code_shopping/vendor/doctrine/dbal" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />

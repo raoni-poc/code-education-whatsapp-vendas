@@ -36,3 +36,19 @@ PHPStorm - Plugins
 Sempre alterar o namespace no inicio da application
 
 Última Aula Concluida - Gerando Aplicação
+
+----------
+
+#Pacotes
+
+`
+https://github.com/cviebrock/eloquent-sluggable
+
+https://github.com/barryvdh/laravel-ide-helper
+`
+
+------
+
+Route model binding
+    -Implicita
+    -Explicita
