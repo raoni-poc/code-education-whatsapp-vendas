@@ -52,3 +52,7 @@ https://github.com/barryvdh/laravel-ide-helper
 Route model binding
     -Implicita
     -Explicita
+    
+----
+
+Tradução no arquivo validation.php
