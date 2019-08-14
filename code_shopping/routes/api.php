@@ -18,7 +18,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::group(['namespace' => 'Api', 'as' => 'api.'], function () {
-    Route::resource('products.categories', 'ProductCategoryController' /*, ['only' => 'index', 'create', 'destroy '] */);
     Route::resource('products', 'ProductController', ['except' => ['create', 'edit']]);
     Route::resource('categories', 'CategoryController', ['except' => ['create', 'edit']]);
+    Route::resource('products.categories', 'ProductCategoryController' , ['only' => ['index', 'create', 'destroy ']]);
+    Route::resource('inputs', 'ProductInputController', ['only' => ['index', 'store', 'show']]);
 });
