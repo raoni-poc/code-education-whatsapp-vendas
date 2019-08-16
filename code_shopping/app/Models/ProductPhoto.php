@@ -53,6 +53,19 @@ class ProductPhoto extends Model
         }
     }
 
+    public function deleteWithPhoto(): bool{
+        try{
+            \DB::beginTransaction();
+            $this->deletePhotos($this->file_name);
+            $result = $this->delete();
+            \DB::commit();
+            return $result;
+        } catch (\Exception $e){
+            \DB::rollBack();
+            throw $e;
+        }
+    }
+
     private function deletePhotos($fileName)
     {
         $dir = self::photosDir($this->product_id);
@@ -107,6 +120,6 @@ class ProductPhoto extends Model
 
     public function product()
     {
-        return $this->belongsTo(Product::class);
+        return $this->belongsTo(Product::class)->withTrashed();
     }
 }
