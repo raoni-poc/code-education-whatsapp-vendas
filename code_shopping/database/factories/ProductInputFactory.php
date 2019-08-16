@@ -5,6 +5,6 @@ use Faker\Generator as Faker;
 
 $factory->define(ProductInput::class, function (Faker $faker) {
     return [
-        'amount' => $faker->numberBetween(3, 15)
+        'amount' => $faker->numberBetween(10, 150)
     ];
 });
