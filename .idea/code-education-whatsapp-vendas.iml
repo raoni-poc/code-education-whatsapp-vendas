@@ -28,10 +28,12 @@
       <excludeFolder url="file://$MODULE_DIR$/code_shopping/vendor/justinrainbow/json-schema" />
       <excludeFolder url="file://$MODULE_DIR$/code_shopping/vendor/laravel/framework" />
       <excludeFolder url="file://$MODULE_DIR$/code_shopping/vendor/laravel/tinker" />
+      <excludeFolder url="file://$MODULE_DIR$/code_shopping/vendor/lcobucci/jwt" />
       <excludeFolder url="file://$MODULE_DIR$/code_shopping/vendor/league/flysystem" />
       <excludeFolder url="file://$MODULE_DIR$/code_shopping/vendor/mockery/mockery" />
       <excludeFolder url="file://$MODULE_DIR$/code_shopping/vendor/monolog/monolog" />
       <excludeFolder url="file://$MODULE_DIR$/code_shopping/vendor/myclabs/deep-copy" />
+      <excludeFolder url="file://$MODULE_DIR$/code_shopping/vendor/namshi/jose" />
       <excludeFolder url="file://$MODULE_DIR$/code_shopping/vendor/nesbot/carbon" />
       <excludeFolder url="file://$MODULE_DIR$/code_shopping/vendor/nikic/php-parser" />
       <excludeFolder url="file://$MODULE_DIR$/code_shopping/vendor/nunomaduro/collision" />
@@ -80,13 +82,16 @@
       <excludeFolder url="file://$MODULE_DIR$/code_shopping/vendor/symfony/polyfill-iconv" />
       <excludeFolder url="file://$MODULE_DIR$/code_shopping/vendor/symfony/polyfill-intl-idn" />
       <excludeFolder url="file://$MODULE_DIR$/code_shopping/vendor/symfony/polyfill-mbstring" />
+      <excludeFolder url="file://$MODULE_DIR$/code_shopping/vendor/symfony/polyfill-php56" />
       <excludeFolder url="file://$MODULE_DIR$/code_shopping/vendor/symfony/polyfill-php72" />
+      <excludeFolder url="file://$MODULE_DIR$/code_shopping/vendor/symfony/polyfill-util" />
       <excludeFolder url="file://$MODULE_DIR$/code_shopping/vendor/symfony/process" />
       <excludeFolder url="file://$MODULE_DIR$/code_shopping/vendor/symfony/routing" />
       <excludeFolder url="file://$MODULE_DIR$/code_shopping/vendor/symfony/translation" />
       <excludeFolder url="file://$MODULE_DIR$/code_shopping/vendor/symfony/var-dumper" />
       <excludeFolder url="file://$MODULE_DIR$/code_shopping/vendor/theseer/tokenizer" />
       <excludeFolder url="file://$MODULE_DIR$/code_shopping/vendor/tijsverkoyen/css-to-inline-styles" />
+      <excludeFolder url="file://$MODULE_DIR$/code_shopping/vendor/tymon/jwt-auth" />
       <excludeFolder url="file://$MODULE_DIR$/code_shopping/vendor/vlucas/phpdotenv" />
       <excludeFolder url="file://$MODULE_DIR$/code_shopping/vendor/webmozart/assert" />
     </content>

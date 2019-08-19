@@ -87,6 +87,11 @@
       <path value="$PROJECT_DIR$/code_shopping/vendor/doctrine/cache" />
       <path value="$PROJECT_DIR$/code_shopping/vendor/doctrine/event-manager" />
       <path value="$PROJECT_DIR$/code_shopping/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/code_shopping/vendor/namshi/jose" />
+      <path value="$PROJECT_DIR$/code_shopping/vendor/lcobucci/jwt" />
+      <path value="$PROJECT_DIR$/code_shopping/vendor/symfony/polyfill-php56" />
+      <path value="$PROJECT_DIR$/code_shopping/vendor/tymon/jwt-auth" />
+      <path value="$PROJECT_DIR$/code_shopping/vendor/symfony/polyfill-util" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />

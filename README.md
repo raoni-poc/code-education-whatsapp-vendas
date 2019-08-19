@@ -56,3 +56,9 @@ Route model binding
 ----
 
 Tradução no arquivo validation.php
+
+----
+
+Gerar Chave
+
+php artisan jwt:secret
