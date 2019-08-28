@@ -62,3 +62,8 @@ Tradução no arquivo validation.php
 Gerar Chave
 
 php artisan jwt:secret
+
+
+-----------
+
+Procurar a biblioteca laravel-cors
