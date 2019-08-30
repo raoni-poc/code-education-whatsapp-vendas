@@ -4,7 +4,9 @@
     <thead>
     <tr>
       <td colspan="5">
-        <button>Nova Categoria</button>
+        <button type="button" class="btn btn-primary" (click)="showModalInsert()">
+          Nova Categoria
+        </button>
       </td>
     </tr>
     <tr>
@@ -28,3 +30,5 @@
     </tbody>
   </table>
 </div>
+
+<category-new-modal></category-new-modal>
