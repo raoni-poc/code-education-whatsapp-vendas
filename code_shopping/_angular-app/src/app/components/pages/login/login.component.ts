@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
+import {Router} from "@angular/router";
+import {error} from "util";
 
 @Component({
   selector: 'login',
@@ -13,7 +15,9 @@ export class LoginComponent implements OnInit {
     password: 'secret'
   };
 
-  constructor(private http: HttpClient) {
+  showMessageError = false;
+
+  constructor(private http: HttpClient, private router:Router) {
   }
 
   ngOnInit() {
@@ -23,13 +27,9 @@ export class LoginComponent implements OnInit {
     this.http.post<any>('http://localhost:8000/api/login', this.credentials)
       .subscribe((data) => {
         const token = data.token;
-        console.log(token);
-        this.http.get('http://localhost:8000/api/categories', {
-          headers: {
-            'Authorization': `Bearer ${token}`
-          }
-        }).subscribe(data => console.log(data))
-      });
+        window.localStorage.setItem('token', token);
+        this.router.navigate(['categories/list']);
+      }, () => this.showMessageError = true);
     return false;
   }
 
