@@ -1,27 +1,26 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams} from "@angular/common/http";
-import {ObjectUnsubscribedError, Observable} from "rxjs";
+import {Observable} from "rxjs";
+import {Product} from "../../models";
 import {map} from "rxjs/operators";
-import {Category} from "../../models";
 
 @Injectable({
   providedIn: 'root'
 })
-export class CategoryHttpService {
-
-  private baseUrl = 'http://localhost:8000/api/categories';
+export class ProductHttpService {
+  private baseUrl = 'http://localhost:8000/api/products';
 
   constructor(private http:HttpClient) {
   }
 
-  list(page: number): Observable<{data: Array<Category>, meta: any}> {
+  list(page: number): Observable<{data: Array<Product>, meta: any}> {
     const token = window.localStorage.getItem('token');
     const params = new HttpParams({
       fromObject: {
         page: page+"",
       }
     });
-    return this.http.get<{data: Array<Category>, meta: any}>
+    return this.http.get<{data: Array<Product>, meta: any}>
     (this.baseUrl, {
       params,
       headers: {
@@ -30,9 +29,9 @@ export class CategoryHttpService {
     })
   }
 
-  get(id: number):Observable<Category> {
+  get(id: number):Observable<Product> {
     const token = window.localStorage.getItem('token');
-    return this.http.get<{data: Category}>
+    return this.http.get<{data: Product}>
     (`${this.baseUrl}/${id}`, {
       headers: {
         'Authorization': `Bearer ${token}`
@@ -42,9 +41,9 @@ export class CategoryHttpService {
     )
   }
 
-  create(data: Category): Observable<Category> {
+  create(data: Product): Observable<Product> {
     const token = window.localStorage.getItem('token');
-    return this.http.post<{data: Category}>(this.baseUrl, data, {
+    return this.http.post<{data: Product}>(this.baseUrl, data, {
       headers: {
         'Authorization': `Bearer ${token}`
       }
@@ -53,9 +52,9 @@ export class CategoryHttpService {
     )
   }
 
-  update(id: number, data: Category): Observable<Category> {
+  update(id: number, data: Product): Observable<Product> {
     const token = window.localStorage.getItem('token');
-    return this.http.put<{data: Category}>(`${this.baseUrl}/${id}`,data, {
+    return this.http.put<{data: Product}>(`${this.baseUrl}/${id}`,data, {
       headers: {
         'Authorization': `Bearer ${token}`
       }

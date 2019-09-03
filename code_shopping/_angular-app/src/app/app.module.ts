@@ -8,11 +8,17 @@ import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {CategoryListComponent} from './components/pages/category/category-list/category-list.component';
 import {RouterModule, Routes} from "@angular/router";
-import { AlertErrorComponent } from './components/bootstrap/alert-error/alert-error.component';
-import { ModalComponent } from './components/bootstrap/modal/modal.component';
-import { CategoryNewModalComponent } from './components/pages/category/category-new-modal/category-new-modal.component';
-import { CategoryEditModalComponent } from './components/pages/category/category-edit-modal/category-edit-modal.component';
-import { CategoryDeleteModalComponent } from './components/pages/category/category-delete-modal/category-delete-modal.component';
+import {AlertErrorComponent} from './components/bootstrap/alert-error/alert-error.component';
+import {ModalComponent} from './components/bootstrap/modal/modal.component';
+import {CategoryNewModalComponent} from './components/pages/category/category-new-modal/category-new-modal.component';
+import {CategoryEditModalComponent} from './components/pages/category/category-edit-modal/category-edit-modal.component';
+import {CategoryDeleteModalComponent} from './components/pages/category/category-delete-modal/category-delete-modal.component';
+import {NgxPaginationModule} from "ngx-pagination";
+import {ProductListComponent} from './components/pages/product/product-list/product-list.component';
+import {ProductNewModalComponent} from './components/pages/product/product-new-modal/product-new-modal.component';
+import {ProductEditModalComponent} from './components/pages/product/product-edit-modal/product-edit-modal.component';
+import {ProductDeleteModalComponent} from './components/pages/product/product-delete-modal/product-delete-modal.component';
+import { NumberFormatBrPipe } from './pipes/number-format-br.pipe';
 
 const routes: Routes = [
   {
@@ -20,6 +26,9 @@ const routes: Routes = [
   },
   {
     path: 'categories/list', component: CategoryListComponent
+  },
+  {
+    path: 'products/list', component: ProductListComponent
   },
   {
     path: '',
@@ -37,13 +46,19 @@ const routes: Routes = [
     ModalComponent,
     CategoryNewModalComponent,
     CategoryEditModalComponent,
-    CategoryDeleteModalComponent
+    CategoryDeleteModalComponent,
+    ProductListComponent,
+    ProductNewModalComponent,
+    ProductEditModalComponent,
+    ProductDeleteModalComponent,
+    NumberFormatBrPipe
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    RouterModule.forRoot(routes, {enableTracing: false})
+    RouterModule.forRoot(routes, {enableTracing: false}),
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
