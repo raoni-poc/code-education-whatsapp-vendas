@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {ModalComponent} from "../../../bootstrap/modal/modal.component";
-import {HttpClient, HttpErrorResponse} from "@angular/common/http";
+import {HttpErrorResponse} from "@angular/common/http";
+import {CategoryHttpService} from "../../../../services/http/category-http.service";
 
 @Component({
   selector: 'category-edit-modal',
@@ -22,42 +23,28 @@ export class CategoryEditModalComponent implements OnInit {
   @Output() onSuccess: EventEmitter<any> = new EventEmitter<any>();
   @Output() onError: EventEmitter<HttpErrorResponse> = new EventEmitter<HttpErrorResponse>();
 
-  constructor(private http: HttpClient) {
+  constructor(public categoryHttp: CategoryHttpService) {
   }
 
   ngOnInit() {
   }
 
   submit() {
-    console.log('onSubmit');
-    const token = window.localStorage.getItem('token');
-    this.http.put(`http://localhost:8000/api/categories/${this._categoryId}`, this.category, {
-      headers: {
-        'Authorization': `Bearer ${token}`
-      }
-    })
+    this.categoryHttp
+      .update(this._categoryId, this.category)
       .subscribe((category) => {
         this.onSuccess.emit(category);
         this.modal.hide();
-      },  error => this.onError.emit(error) );
+      }, error => this.onError.emit(error));
   }
 
   @Input()
   set categoryId(value) {
-    if(!value){
-      return
-    }
     this._categoryId = value;
-    const token = window.localStorage.getItem('token');
-    this.http.get<{ data: any }>(`http://localhost:8000/api/categories/${value}`, {
-      headers: {
-        'Authorization': `Bearer ${token}`
-      }
-    })
-      .subscribe((response) => {
-        console.log(response.data);
-        this.category = response.data
-      })
+    if (this._categoryId) {
+      this.categoryHttp.get(this._categoryId)
+        .subscribe(category => this.category = category)
+    }
   }
 
   showModal() {
