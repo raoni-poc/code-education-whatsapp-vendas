@@ -27,6 +27,7 @@ import {UserNewModalComponent} from "./components/pages/user/user-new-modal/user
 import {UserListComponent} from "./components/pages/user/user-list/user-list.component";
 import {JWT_OPTIONS, JwtModule} from "@auth0/angular-jwt";
 import {AuthService} from "./services/auth.service";
+import { NavbarComponent } from './components/bootstrap/navbar/navbar.component';
 
 const routes: Routes = [
   {
@@ -82,7 +83,8 @@ function jwtFactory(authService: AuthService) {
     UserListComponent,
     UserDeleteModalComponent,
     UserEditModalComponent,
-    UserNewModalComponent
+    UserNewModalComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

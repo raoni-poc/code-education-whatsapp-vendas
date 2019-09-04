@@ -28,8 +28,8 @@ export interface User {
   name: string;
   email: string;
   password?: string;
-  readonly created_at: {date: string}
-  readonly updated_at: {date: string}
+  readonly created_at?: {date: string}
+  readonly updated_at?: {date: string}
 }
 
 
