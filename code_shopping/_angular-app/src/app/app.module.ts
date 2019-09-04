@@ -20,6 +20,7 @@ import {ProductEditModalComponent} from './components/pages/product/product-edit
 import {ProductDeleteModalComponent} from './components/pages/product/product-delete-modal/product-delete-modal.component';
 import { NumberFormatBrPipe } from './pipes/number-format-br.pipe';
 import { ProductCategoryListComponent } from './components/pages/product-category/product-category-list/product-category-list.component';
+import { ProductCategoryNewComponent } from './components/pages/product-category/product-category-new/product-category-new.component';
 
 const routes: Routes = [
   {
@@ -57,6 +58,7 @@ const routes: Routes = [
     ProductDeleteModalComponent,
     NumberFormatBrPipe,
     ProductCategoryListComponent,
+    ProductCategoryNewComponent,
   ],
   imports: [
     BrowserModule,

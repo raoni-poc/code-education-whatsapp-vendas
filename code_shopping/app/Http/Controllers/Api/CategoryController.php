@@ -10,10 +10,10 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        sleep(1);
-        return CategoryResource::collection(Category::paginate(5));
+        $categories = $request->has('all') ? Category::all() : Category::paginate(5);
+        return CategoryResource::collection($categories);
     }
 
     public function store(CategoryRequest $request)
