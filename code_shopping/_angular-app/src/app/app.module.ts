@@ -30,6 +30,7 @@ import {AuthService} from "./services/auth.service";
 import {NavbarComponent} from './components/bootstrap/navbar/navbar.component';
 import {RefreshTokenInterceptorService} from "./services/refresh-token-interceptor.service";
 import {environment} from "../environments/environment";
+import { SortColumnComponent } from './components/common/sort-column/sort-column.component';
 
 function jwtFactory(authService: AuthService) {
   return {
@@ -63,7 +64,8 @@ function jwtFactory(authService: AuthService) {
     UserDeleteModalComponent,
     UserEditModalComponent,
     UserNewModalComponent,
-    NavbarComponent
+    NavbarComponent,
+    SortColumnComponent
   ],
   imports: [
     BrowserModule,

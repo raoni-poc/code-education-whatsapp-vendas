@@ -10,15 +10,16 @@
       </td>
     </tr>
     <tr>
-      <th style="width: 5%">ID</th>
-      <th style="width: 65%">Nome</th>
+      <th style="width: 5%" [sortColumn]="sortColumn" columnName="id">ID</th>
+      <th style="width: 65%" [sortColumn]="sortColumn" columnName="name">Nome</th>
       <th style="width: 10%">Ativa?</th>
-      <th style="width: 10%">Criado Em</th>
+      <th style="width: 10%" [sortColumn]="sortColumn" columnName="created-at">Criado Em</th>
       <th style="width: 10%">Ações</th>
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let category of categories | paginate:{itemsPerPage:5,currentPage: pagination.page, totalItems: pagination.totalItems, itemsPerPage:pagination.itemsPerPage}">
+    <tr
+      *ngFor="let category of categories | paginate:{itemsPerPage:5,currentPage: pagination.page, totalItems: pagination.totalItems, itemsPerPage:pagination.itemsPerPage}">
       <td>{{ category.id }}</td>
       <td>{{ category.name }}</td>
       <td>
@@ -37,8 +38,8 @@
     </tbody>
   </table>
   <pagination-controls (pageChange)="pageChanged($event)"
-                        previousLabel="Anterior"
-                        nextLabel="Próximo"></pagination-controls>
+                       previousLabel="Anterior"
+                       nextLabel="Próximo"></pagination-controls>
 </div>
 
 <category-new-modal (onSuccess)="categoryInsertService.onInsertSuccess($event)"

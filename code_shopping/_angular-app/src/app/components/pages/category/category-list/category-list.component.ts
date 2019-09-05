@@ -23,6 +23,7 @@ export class CategoryListComponent implements OnInit {
     totalItems: 0,
     itemsPerPage: 15,
   };
+  sortColumn={column: '', sort: ''};
 
   @ViewChild(CategoryNewModalComponent, {static: false})
   categoryNewModal: CategoryNewModalComponent;
