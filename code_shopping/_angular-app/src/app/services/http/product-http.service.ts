@@ -4,12 +4,13 @@ import {Observable} from "rxjs";
 import {Product} from "../../models";
 import {map} from "rxjs/operators";
 import {HttpResource, SearchParams, SearchParamsBuilder} from "./http-resource";
+import {environment} from "../../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductHttpService implements HttpResource<Product>{
-  private baseUrl = 'http://localhost:8000/api/products';
+  private baseUrl = `${environment.api.url}/products`;
 
   constructor(private http:HttpClient) {
   }

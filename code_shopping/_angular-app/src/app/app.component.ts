@@ -18,4 +18,8 @@ export class AppComponent implements OnInit{
       document: false
     })
   }
+
+  canShowNavbar(){
+    return this.authService.isAuth();
+  }
 }

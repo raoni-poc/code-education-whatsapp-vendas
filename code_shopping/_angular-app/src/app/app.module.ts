@@ -5,7 +5,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {LoginComponent} from './components/pages/login/login.component';
 import {FormsModule} from "@angular/forms";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {CategoryListComponent} from './components/pages/category/category-list/category-list.component';
 import {RouterModule, Routes} from "@angular/router";
 import {AlertErrorComponent} from './components/bootstrap/alert-error/alert-error.component';
@@ -27,35 +27,14 @@ import {UserNewModalComponent} from "./components/pages/user/user-new-modal/user
 import {UserListComponent} from "./components/pages/user/user-list/user-list.component";
 import {JWT_OPTIONS, JwtModule} from "@auth0/angular-jwt";
 import {AuthService} from "./services/auth.service";
-import { NavbarComponent } from './components/bootstrap/navbar/navbar.component';
-
-const routes: Routes = [
-  {
-    path: 'login', component: LoginComponent
-  },
-  {
-    path: 'categories/list', component: CategoryListComponent
-  },
-  {
-    path: 'products/:product/categories/list', component: ProductCategoryListComponent
-  },
-  {
-    path: 'products/list', component: ProductListComponent
-  },
-  {
-    path: 'users/list', component: UserListComponent
-  },
-  {
-    path: '',
-    redirectTo: '/login',
-    pathMatch: 'full'
-  },
-];
+import {NavbarComponent} from './components/bootstrap/navbar/navbar.component';
+import {RefreshTokenInterceptorService} from "./services/refresh-token-interceptor.service";
+import {environment} from "../environments/environment";
 
 function jwtFactory(authService: AuthService) {
   return {
     whitelistedDomains: [
-      new RegExp('localhost:8000/*')
+      new RegExp(`${environment.api.url}/*`)
     ],
     tokenGetter: () => {
       return authService.getToken();
@@ -90,7 +69,7 @@ function jwtFactory(authService: AuthService) {
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    RouterModule.forRoot(routes, {enableTracing: false}),
+    AppRoutingModule,
     NgxPaginationModule,
     JwtModule.forRoot({
       jwtOptionsProvider: {
@@ -100,7 +79,13 @@ function jwtFactory(authService: AuthService) {
       }
     })
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: RefreshTokenInterceptorService,
+      multi: true
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

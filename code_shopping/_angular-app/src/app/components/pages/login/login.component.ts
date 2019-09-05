@@ -28,7 +28,10 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.credentials)
       .subscribe((data) => {
         this.router.navigate(['categories/list']);
-      }, () => this.showMessageError = true);
+      }, (error) => {
+        console.log(error);
+        this.showMessageError = true
+      });
     return false;
   }
 

@@ -30,6 +30,7 @@
       <excludeFolder url="file://$MODULE_DIR$/code_shopping/vendor/laravel/tinker" />
       <excludeFolder url="file://$MODULE_DIR$/code_shopping/vendor/lcobucci/jwt" />
       <excludeFolder url="file://$MODULE_DIR$/code_shopping/vendor/league/flysystem" />
+      <excludeFolder url="file://$MODULE_DIR$/code_shopping/vendor/mnabialek/laravel-eloquent-filter" />
       <excludeFolder url="file://$MODULE_DIR$/code_shopping/vendor/mockery/mockery" />
       <excludeFolder url="file://$MODULE_DIR$/code_shopping/vendor/monolog/monolog" />
       <excludeFolder url="file://$MODULE_DIR$/code_shopping/vendor/myclabs/deep-copy" />
