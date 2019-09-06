@@ -35,7 +35,7 @@ import { SortColumnComponent } from './components/common/sort-column/sort-column
 function jwtFactory(authService: AuthService) {
   return {
     whitelistedDomains: [
-      new RegExp(`${environment.api.url}/*`)
+      new RegExp('localhost:8000/*')
     ],
     tokenGetter: () => {
       return authService.getToken();

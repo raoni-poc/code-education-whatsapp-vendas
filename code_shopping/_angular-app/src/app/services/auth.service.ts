@@ -24,7 +24,7 @@ export class AuthService {
     return this.http.post<{ token: string }>(`${environment.api.url}/login`, user)
       .pipe(
         tap(response => {
-          this.setToken(response.token)
+          this.setToken(response.token);
         })
       );
   }
