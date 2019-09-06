@@ -17,9 +17,7 @@ export class UserHttpService implements HttpResource<User>{
 
   list(searchParams: SearchParams): Observable<{ data: Array<User>, meta: any }> {
     const sParams = new SearchParamsBuilder(searchParams).makeObject();
-    const params = new HttpParams({
-      fromObject: (<any>sParams)
-    });
+    const params = new HttpParams((<any>sParams));
     return this.http.get<{ data: Array<User>, meta: any }>
     (this.baseUrl, {params})
   }

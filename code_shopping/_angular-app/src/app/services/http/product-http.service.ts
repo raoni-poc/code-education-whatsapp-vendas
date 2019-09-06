@@ -17,9 +17,7 @@ export class ProductHttpService implements HttpResource<Product>{
 
   list(searchParams: SearchParams): Observable<{data: Array<Product>, meta: any}> {
     const sParams = new SearchParamsBuilder(searchParams).makeObject();
-    const params = new HttpParams({
-      fromObject: (<any>sParams)
-    });
+    const params = new HttpParams((<any>sParams));
     return this.http.get<{data: Array<Product>, meta: any}>
     (this.baseUrl, {params})
   }

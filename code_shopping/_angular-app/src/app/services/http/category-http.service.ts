@@ -19,9 +19,7 @@ export class CategoryHttpService implements HttpResource<Category> {
 
   list(searchParams: SearchParams): Observable<{ data: Array<Category>, meta: any }> {
     const sParams = new SearchParamsBuilder(searchParams).makeObject();
-    const params = new HttpParams({
-      fromObject: (<any>sParams)
-    });
+    const params = new HttpParams((<any>sParams));
     return this.http.get<{ data: Array<Category>, meta: any }>
     (this.baseUrl, {params})
   }
