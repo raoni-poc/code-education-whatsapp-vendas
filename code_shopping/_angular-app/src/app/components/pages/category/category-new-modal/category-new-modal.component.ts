@@ -2,7 +2,8 @@ import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core'
 import {ModalComponent} from "../../../bootstrap/modal/modal.component";
 import {HttpErrorResponse} from "@angular/common/http";
 import {CategoryHttpService} from "../../../../services/http/category-http.service";
-import {Category} from "../../../../models";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import fieldOptions from "../category-form/category-field-options";
 
 @Component({
   selector: 'category-new-modal',
@@ -11,17 +12,19 @@ import {Category} from "../../../../models";
 })
 export class CategoryNewModalComponent implements OnInit {
 
-  category: Category = {
-    name: '',
-    active: true
-  };
-
-  @ViewChild(ModalComponent, {static: false})
-  modal: ModalComponent;
+  form: FormGroup;
+  errors = {};
+  @ViewChild(ModalComponent, {static: false}) modal: ModalComponent;
   @Output() onSuccess: EventEmitter<any> = new EventEmitter<any>();
   @Output() onError: EventEmitter<HttpErrorResponse> = new EventEmitter<HttpErrorResponse>();
 
-  constructor(public categoryHttp: CategoryHttpService) {
+  constructor(public categoryHttp: CategoryHttpService, private formBuilder: FormBuilder) {
+    const maxLength = fieldOptions.name.validationMessage.maxLength;
+    this.form = this.formBuilder.group({
+      // name: ['', [Validators.required, Validators.maxLength(maxLength)]],
+      name: [''],
+      active: true
+    });
   }
 
   ngOnInit() {
@@ -29,15 +32,28 @@ export class CategoryNewModalComponent implements OnInit {
 
   submit() {
     this.categoryHttp
-      .create(this.category)
+      .create(this.form.value)
       .subscribe((category) => {
+        this.form.reset({
+          name: '',
+          active: true
+        });
         this.onSuccess.emit(category);
         this.modal.hide();
-      }, error => this.onError.emit(error));
+      }, responseError => {
+        if(responseError.status === 422){
+          this.errors = responseError.error.errors
+        }
+        this.onError.emit(responseError)
+      });
   }
 
   showModal() {
     this.modal.show();
+  }
+
+  showErrors(){
+    return Object.keys(this.errors).length != 0;
   }
 
   hideModal($event) {

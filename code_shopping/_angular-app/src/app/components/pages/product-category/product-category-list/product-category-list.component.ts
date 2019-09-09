@@ -7,7 +7,7 @@ import {CategoryHttpService} from "../../../../services/http/category-http.servi
 import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
-  selector: 'app-product-category-list',
+  selector: 'product-category-list',
   templateUrl: './product-category-list.component.html',
   styleUrls: ['./product-category-list.component.css']
 })
@@ -20,8 +20,7 @@ export class ProductCategoryListComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private productHttp: ProductHttpService,
-              private productCategoryHttp: ProductCategoryHttpService,
-              private categoryHttp: CategoryHttpService) {
+              private productCategoryHttp: ProductCategoryHttpService) {
   }
 
   ngOnInit() {
