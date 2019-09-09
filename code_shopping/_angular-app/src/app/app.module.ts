@@ -31,6 +31,7 @@ import {NavbarComponent} from './components/bootstrap/navbar/navbar.component';
 import {RefreshTokenInterceptorService} from "./services/refresh-token-interceptor.service";
 import {environment} from "../environments/environment";
 import { SortColumnComponent } from './components/common/sort-column/sort-column.component';
+import { CategorySearchFormComponent } from './components/pages/category/category-search-form/category-search-form.component';
 
 function jwtFactory(authService: AuthService) {
   return {
@@ -65,7 +66,8 @@ function jwtFactory(authService: AuthService) {
     UserEditModalComponent,
     UserNewModalComponent,
     NavbarComponent,
-    SortColumnComponent
+    SortColumnComponent,
+    CategorySearchFormComponent
   ],
   imports: [
     BrowserModule,

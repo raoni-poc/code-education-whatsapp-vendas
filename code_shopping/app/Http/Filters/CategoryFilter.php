@@ -12,7 +12,7 @@ class CategoryFilter extends SimpleQueryFilter
     protected function applySearch($value)
     {
         $this->query->where('name', 'LIKE', "%$value%")
-            ->orWhere('description', 'LIKE', "%$value%")
-            ->orWhere('coluna', 'LIKE', "%$value%");
+            ->orWhere('id', 'LIKE', "%$value%")
+            ->orWhere('created_at', 'LIKE', "%$value%");
     }
 }
