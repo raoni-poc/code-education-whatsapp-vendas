@@ -12,6 +12,14 @@ export interface ProductCategory {
   categories: Category[];
 }
 
+export interface ProductPhoto {
+  id?: number;
+  photo_url: string;
+  product?:Product;
+  readonly created_at?: {data: string}
+  readonly updated_at?: {data: string}
+}
+
 export interface ProductInput {
   id?: number;
   amount: number;
