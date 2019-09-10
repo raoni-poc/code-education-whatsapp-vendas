@@ -1,5 +1,5 @@
 import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ModalComponent} from "../../../bootstrap/modal/modal.component";
 import {HttpErrorResponse} from "@angular/common/http";
 import {ProductInputHttpService} from "../../../../services/http/product-input-http.service";
@@ -19,11 +19,9 @@ export class ProductInputNewModalComponent implements OnInit {
   @Output() onError: EventEmitter<HttpErrorResponse> = new EventEmitter<HttpErrorResponse>();
 
   constructor(public inputHttp: ProductInputHttpService, private formBuilder: FormBuilder) {
-    const maxLength = productInputFieldOptions.name.validationMessage.maxLength;
     this.form = this.formBuilder.group({
-      // name: ['', [Validators.required, Validators.maxLength(maxLength)]],
-      name: [''],
-      active: true
+      product_id: [null, [Validators.required]],
+      amount: ['', [Validators.required, Validators.min(productInputFieldOptions.amount.validationMessage.min)]],
     });
   }
 
@@ -35,8 +33,8 @@ export class ProductInputNewModalComponent implements OnInit {
       .create(this.form.value)
       .subscribe((input) => {
         this.form.reset({
-          name: '',
-          active: true
+          amount: '',
+          product_id: null
         });
         this.onSuccess.emit(input);
         this.modal.hide();
