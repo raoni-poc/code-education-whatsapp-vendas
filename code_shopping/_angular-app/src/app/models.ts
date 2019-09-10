@@ -7,6 +7,19 @@ export interface Category {
   readonly updated_at?: { date: string }
 }
 
+export interface ProductCategory {
+  product: Product;
+  categories: Category[];
+}
+
+export interface ProductInput {
+  id?: number;
+  amount: number;
+  readonly created_at ?: {date: string};
+  readonly updated_at ?: {date: string};
+  product: Product
+}
+
 export interface Product {
   id?: number;
   name: string;
@@ -16,11 +29,6 @@ export interface Product {
   active: boolean;
   readonly created_at?:{date: string};
   readonly updated_at?:{date: string};
-}
-
-export interface ProductCategory {
-  product: Product;
-  categories: Category[];
 }
 
 export interface User {

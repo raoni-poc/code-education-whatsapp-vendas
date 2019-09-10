@@ -29,14 +29,17 @@ import {JWT_OPTIONS, JwtModule} from "@auth0/angular-jwt";
 import {AuthService} from "./services/auth.service";
 import {NavbarComponent} from './components/bootstrap/navbar/navbar.component';
 import {RefreshTokenInterceptorService} from "./services/refresh-token-interceptor.service";
-import {environment} from "../environments/environment";
-import { SortColumnComponent } from './components/common/sort-column/sort-column.component';
-import { CategorySearchFormComponent } from './components/pages/category/category-search-form/category-search-form.component';
-import { CategoryFormComponent } from './components/pages/category/category-form/category-form.component';
-import { FieldErrorComponent } from './components/bootstrap/field-error/field-error.component';
-import { IsInvalidDirective } from './directives/is-invalid.directive';
-import { ListErrorComponent } from './components/bootstrap/list-error/list-error.component';
-import { CardErrorComponent } from './components/bootstrap/card-error/card-error.component';
+import {SortColumnComponent} from './components/common/sort-column/sort-column.component';
+import {CategorySearchFormComponent} from './components/pages/category/category-search-form/category-search-form.component';
+import {CategoryFormComponent} from './components/pages/category/category-form/category-form.component';
+import {FieldErrorComponent} from './components/bootstrap/field-error/field-error.component';
+import {IsInvalidDirective} from './directives/is-invalid.directive';
+import {ListErrorComponent} from './components/bootstrap/list-error/list-error.component';
+import {CardErrorComponent} from './components/bootstrap/card-error/card-error.component';
+import {ProductInputListComponent} from './components/pages/product-input/product-input-list/product-input-list.component';
+import {ProductInputFormComponent} from './components/pages/product-input/product-input-form/product-input-form.component';
+import {ProductInputNewModalComponent} from './components/pages/product-input/product-input-new-modal/product-input-new-modal.component';
+import {ProductInputSearchFormComponent} from './components/pages/product-input/product-input-search-form/product-input-search-form.component';
 
 function jwtFactory(authService: AuthService) {
   return {
@@ -77,7 +80,11 @@ function jwtFactory(authService: AuthService) {
     FieldErrorComponent,
     IsInvalidDirective,
     ListErrorComponent,
-    CardErrorComponent
+    CardErrorComponent,
+    ProductInputListComponent,
+    ProductInputFormComponent,
+    ProductInputNewModalComponent,
+    ProductInputSearchFormComponent
   ],
   imports: [
     BrowserModule,
