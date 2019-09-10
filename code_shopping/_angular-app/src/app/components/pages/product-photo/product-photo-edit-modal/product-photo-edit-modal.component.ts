@@ -1,11 +1,11 @@
 import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
-import {HttpErrorResponse} from "@angular/common/http.js";
-import {ProductPhotoHttpService} from "../../../../services/http/product-photo-http.service.js";
+import {HttpErrorResponse} from "@angular/common/http";
+import {ProductPhotoHttpService} from "../../../../services/http/product-photo-http.service";
 import {ActivatedRoute} from "@angular/router";
-import {ModalComponent} from "../../../bootstrap/modal/modal.component.js";
+import {ModalComponent} from "../../../bootstrap/modal/modal.component";
 
 @Component({
-  selector: 'app-product-photo-edit-modal',
+  selector: 'product-photo-edit-modal',
   templateUrl: './product-photo-edit-modal.component.html',
   styleUrls: ['./product-photo-edit-modal.component.css']
 })
@@ -13,7 +13,8 @@ export class ProductPhotoEditModalComponent implements OnInit {
 
   errors = {};
   productId: number;
-  @Input() photoId: number;
+  @Input()
+  photoId: number;
 
   @ViewChild(ModalComponent, {static: false}) modal: ModalComponent;
 
@@ -27,7 +28,7 @@ export class ProductPhotoEditModalComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.productId = params.product;
-    })
+    });
   }
 
   editPhoto(files: FileList) {
@@ -36,7 +37,8 @@ export class ProductPhotoEditModalComponent implements OnInit {
     }
     this.productPhotoHttp
       .update(this.productId, this.photoId, files[0])
-      .subscribe((data) => this.onSuccess.emit(data),
+      .subscribe(
+        (data) => this.onSuccess.emit(data),
         (responseError) => {
           if (responseError.status === 422) {
             this.errors = responseError.error.errors
@@ -45,17 +47,16 @@ export class ProductPhotoEditModalComponent implements OnInit {
         });
   }
 
-  showModal(){
+  showModal() {
     this.modal.show();
   }
 
-  hideModal(){
+  hideModal() {
     this.modal.hide();
   }
 
   showErrors() {
     return Object.keys(this.errors).length != 0;
   }
-
 
 }

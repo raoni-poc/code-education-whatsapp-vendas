@@ -49,4 +49,9 @@ export class ProductPhotoHttpService {
     }
     return baseUrl;
   }
+
+  destroy(productId: number, photoId: number): Observable<any>{
+    return this.http
+      .delete<any>(this.getBaseUrl(productId, photoId),{})
+  }
 }
